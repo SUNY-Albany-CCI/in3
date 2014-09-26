@@ -6,13 +6,15 @@ $.vegas('slideshow', {
   backgrounds:[
     { src:'images/backgrounds/bg1.jpg', fade:1000 },
     { src:'images/backgrounds/bg2.jpg', fade:1000 },
-    { src:'images/backgrounds/bg3.jpg', fade:1000 }
+    { src:'images/backgrounds/bg3.jpg', fade:1000 },
+    { src:'images/backgrounds/bg4.jpg', fade:1000 },
+
   ]
 });
-      
-   
+
+
 /* =================================
-   LOADER                     
+   LOADER
 =================================== */
 // makes sure the whole site is loaded
 jQuery(window).load(function() {
@@ -45,14 +47,14 @@ $(document).ready(function() {
     scrollThreshold: 0.2, // Adjust if Navigation highlights too early or too late
     scrollOffset: 75 //Height of Navigation Bar
   });
-  
-  // Sticky Header - http://jqueryfordesigners.com/fixed-floating-elements/         
+
+  // Sticky Header - http://jqueryfordesigners.com/fixed-floating-elements/
   var top = $('#main-nav').offset().top - parseFloat($('#main-nav').css('margin-top').replace(/auto/, 0));
-  
+
   $(window).scroll(function (event) {
     // what the y position of the scroll is
     var y = $(this).scrollTop();
-    
+
     // whether that's below the form
     if (y >= top) {
       // if so, ad the fixed class
@@ -62,7 +64,7 @@ $(document).ready(function() {
       $('#main-nav').removeClass('fixed');
     }
   });
-  
+
 });
 
 
@@ -94,7 +96,7 @@ var scrollAnimationTime = 1200,
         }, scrollAnimationTime, scrollAnimation, function () {
             window.location.hash = target;
         });
-    });   
+    });
 
 
 
@@ -150,8 +152,8 @@ $(document).ready(function(){
     $(window).scroll(function() {
       var yPos = -($window.scrollTop() / $bgobj.data('speed'));
       var coords = '50% '+ yPos + 'px';
-      $bgobj.css({ 
-        backgroundPosition: coords 
+      $bgobj.css({
+        backgroundPosition: coords
       });
     });
   });
