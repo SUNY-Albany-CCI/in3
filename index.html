@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="description" content="Beautiful Responsive Animated OnePage Template" />
 <meta name="keywords" content="Zerif, responsive, html, template, creative"/>
-<meta name="author" content="Mizanur Rahman" />
+<meta name="author" content="Jonathan Muckell" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Innovation in Informatics</title>
 
@@ -47,6 +47,82 @@
 
 
 <body>
+<!-- =========================
+   GOOGLE ANALYTICS
+============================== -->
+
+<!-- Step 1: Create the containing elements. -->
+
+<section id="auth-button"></section>
+<section id="view-selector"></section>
+<section id="timeline"></section>
+
+<!-- Step 2: Load the library. -->
+
+<script>
+(function(w,d,s,g,js,fjs){
+  g=w.gapi||(w.gapi={});g.analytics={q:[],ready:function(cb){this.q.push(cb)}};
+  js=d.createElement(s);fjs=d.getElementsByTagName(s)[0];
+  js.src='https://apis.google.com/js/platform.js';
+  fjs.parentNode.insertBefore(js,fjs);js.onload=function(){g.load('analytics')};
+}(window,document,'script'));
+</script>
+
+<script>
+gapi.analytics.ready(function() {
+
+  // Step 3: Authorize the user.
+
+  var CLIENT_ID = '136400677014-b3vu9o08r8e4bk9oc6bf1hgferhkictm.apps.googleusercontent.com';
+
+  gapi.analytics.auth.authorize({
+    container: 'auth-button',
+    clientid: CLIENT_ID,
+  });
+
+  // Step 4: Create the view selector.
+
+  var viewSelector = new gapi.analytics.ViewSelector({
+    container: 'view-selector'
+  });
+
+  // Step 5: Create the timeline chart.
+
+  var timeline = new gapi.analytics.googleCharts.DataChart({
+    reportType: 'ga',
+    query: {
+      'dimensions': 'ga:date',
+      'metrics': 'ga:sessions',
+      'start-date': '30daysAgo',
+      'end-date': 'yesterday',
+    },
+    chart: {
+      type: 'LINE',
+      container: 'timeline'
+    }
+  });
+
+  // Step 6: Hook up the components to work together.
+
+  gapi.analytics.auth.on('success', function(response) {
+    viewSelector.execute();
+  });
+
+  viewSelector.on('change', function(ids) {
+    var newIds = {
+      query: {
+        ids: ids
+      }
+    }
+    timeline.set(newIds).execute();
+  });
+});
+</script>
+<!-- =========================
+   END GOOGLE ANALYTICS
+============================== -->
+
+
 <!-- =========================
    PRE LOADER
 ============================== -->
@@ -561,8 +637,8 @@
 			<li><a href="#"><img src="images/clients/1.png" alt="ACM"></a></li>
 			<li><a href="#"><img src="images/clients/2.png" alt="Client 2"></a></li>
 			<li><a href="#"><img src="images/clients/3.png" alt="Client 3"></a></li>
-		<!--	<li><a href="#"><img src="images/clients/1.png" alt="Client 1"></a></li>
-			<li><a href="#"><img src="images/clients/4.png" alt="Client 4"></a></li>
+			<li><a href="#"><img src="images/clients/ace.png" alt="Client 1"></a></li>
+			<!-- <li><a href="#"><img src="images/clients/4.png" alt="Client 4"></a></li>
 			<li><a href="#"><img src="images/clients/5.png" alt="Client 5"></a></li>
 			<li><a href="#"><img src="images/clients/6.png" alt="Client 6"></a></li> -->
 		</ul>
@@ -695,7 +771,7 @@
 				<div class="member-details">
 					<h5 class="dark-text green-border-bottom">Caroline Buinicky</h5>
 					<div class="position">
-						Wearable Computing Ninja
+						DIY Ninja
 					</div>
 				</div>
 				<div class="social-icons">
@@ -836,6 +912,9 @@
 				</div>
 				<div class="social-icons">
 					<ul>
+					<li><a href="https://www.facebook.com/jcrispy4"><i class="icon-facebook"></i></a></li>
+					<li><a href="https://plus.google.com/112481432822755415075/posts/p/pub"><i class="icon-google"></i></a></li>
+					<li><a href="https://www.linkedin.com/profile/view?id=179285670&trk=nav_responsive_tab_profile"><i class="icon-linkedin"></i></a></li>
 					</ul>
 				</div>
 				<div class="details">
@@ -1049,7 +1128,7 @@
 						<div class="client-info">
 							<a class="client-name" href="">Beth Coco</a>
 							<div class="client-company">
-								 Entrepreneur, University at Albany
+								 Entrepreneur, UAlbany
 							</div>
 						</div>
 						<div class="client-image hidden-xs">
@@ -1060,27 +1139,27 @@
 
 				<div class="feedback-box">
 					<div class="message">
-						 “Called days. Image kind beginning have. Herb set kind herb. Wherein saying third was, every land moveth also bearing hath bring had give god gathered behold open cattle after a, from third male subdue multiply divided void cattle winged. Herb set kind herb. multiply divided void cattle winged. Herb set kind herb.”
+					I am all about creativity and team work, so you can only imagine how excited I am to be part of a community where creating is our main goal.  At the makerspace, people get together from all different backgrounds. When we work together, we combine the talent, passion and energy from multiple people to build great things.
 					</div>
 					<div class="client">
 						<div class="quote green-text">
 							<i class="icon-fontawesome-webfont-294"></i>
 						</div>
 						<div class="client-info">
-							<a class="client-name" href="">Tobi Saulnier</a>
+							<a class="client-name" href="">Nicholle Gregor</a>
 							<div class="client-company">
-							 Founder, 1st Playable Productions
+							 Student, University at Albany
 							</div>
 						</div>
 						<div class="client-image hidden-xs">
-							<img src="images/clients-pic/2.jpg" alt="">
+							<img src="images/clients-pic/nicholle.jpg" alt="">
 						</div>
 					</div>
 				</div>
 
 				<div class="feedback-box">
 					<div class="message">
-					Student need a place to experiment, collaborate and learn from each other.  When I co-founded the future technologies club, we realized that we need support.  We required equipment, mentorship and guidance to tinker and experiment with emerging technologies.  The makerspace has filled this gap.  It is a fun and exciting place to follow our passions and experiment.
+					When I cofounded the future technologies club, I started interacting with a lot of students who wanted hands-on experience with the latest emerging innovations.  We required equipment, mentorship and guidance to tinker and experiment.  The makerspace has filled this gap.  It is a fun and exciting place to follow our passions and experiment.
 					</div>
 					<div class="client">
 						<div class="quote blue-text">

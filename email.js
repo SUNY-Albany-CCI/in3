@@ -1,6 +1,6 @@
 function sendEmailMsg()
 {
-	var to = "inf100@albany.edu";
+	var to = "in3@albany.edu";
 	var subj = document.getElementById("emailSubject").value;
 	var body = document.getElementById("emailBody").value;
 
@@ -10,7 +10,7 @@ function sendEmailMsg()
 
 function emailUpdates()
 {
-	var to = "inf100@albany.edu";
+	var to = "in3@albany.edu";
 	var subj = "ListServ Add";
 	var body = "ListServ Add";
 
